@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include("./partials/head.ejs") %>
+
+    <body>
+
+        <%- include("./partials/header.ejs") %>
+            <%- include("./partials/srch.ejs") %>
+                <section class="main">
+                    <div class="hi">
+                        <h2>Hi, My name is Hadjer.</h2>
+                        <p>Computer engineer & web developer.</p>
+                    </div>
+                    <img class="main-img" src="/images/main-img.jpg" alt="">
+                    <div class="latests">
+                        <h3>Some blogs</h4>
+                            <ul>
+                                <% if (blogs.length> 0) { %>
+                                    <% blogs.forEach(blog=> { %>
+
+                                        <li>
+                                            <div class="title"><a href="/details/<%=blog._id %>">
+                                                    <%= blog.title %>
+                                                </a>
+
+                                            </div>
+                                            <div class="date">
+                                                <%= blog.creationDate.toDateString() %>
+                                            </div>
+                                        </li>
+                                        <% }) %>
+                                            <% } %>
+
+
+                            </ul>
+                            <a class="more" href="">view older blogs &gt;</a>
+                    </div>
+                </section>
+
+
+
+                <%- include("./partials/footer.ejs") %>
+
+
+                    <script src="/js/script.js"></script>
+
+    </body>
+
+</html>
